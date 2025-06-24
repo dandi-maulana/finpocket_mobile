@@ -48,15 +48,15 @@ class _PayState extends State<Pay> {
             "FinPocket Pay",
             style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
           ),
-          backgroundColor: Colors.deepPurpleAccent,
+          backgroundColor: Color(0xFF22416E),
         ),
       ),
       body: Center(
         child: Container(
           width: 400,
-          height: 450,
+          height: 400,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.deepPurpleAccent, width: 2.0),
+            border: Border.all(color: Color(0xFF22416E), width: 2.0),
             borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -69,7 +69,7 @@ class _PayState extends State<Pay> {
                   Text(
                     "Pay Balance",
                     style: GoogleFonts.roboto(
-                      color: Colors.deepPurple,
+                      color: Color(0xFF22416E),
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
                     ),
@@ -80,13 +80,15 @@ class _PayState extends State<Pay> {
                     children: [
                       Text(
                         "Your Balance :",
-                        style: GoogleFonts.roboto(color: Colors.deepPurple),
+                        style: GoogleFonts.roboto(color: Color(0xFF22416E)),
                       ),
-                      Text(
-                        "Rp. ${_mainBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
-                        style: GoogleFonts.roboto(
-                          color: Colors.deepPurple,
-                          fontWeight: FontWeight.bold,
+                      FittedBox(
+                        child: Text(
+                          "Rp. ${_mainBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                          style: GoogleFonts.roboto(
+                            color: Color(0xFF22416E),
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ],
@@ -99,7 +101,7 @@ class _PayState extends State<Pay> {
                         'Select Category',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.deepPurple,
+                          color: Color(0xFF22416E),
                           fontStyle: FontStyle.italic,
                         ),
                       ),
@@ -116,15 +118,17 @@ class _PayState extends State<Pay> {
                                         category.name,
                                         style: TextStyle(
                                           fontSize: 14,
-                                          color: Colors.deepPurple,
+                                          color: Color(0xFF22416E),
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Text(
-                                        "Rp. ${category.balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.deepPurple,
+                                      FittedBox(
+                                        child: Text(
+                                          "Rp. ${category.balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                                          style: TextStyle(
+                                            fontSize: 12,
+                                            color: Color(0xFF22416E),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -151,7 +155,7 @@ class _PayState extends State<Pay> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: Colors.deepPurple,
+                            color: Color(0xFF22416E),
                             width: 1.0,
                           ),
                         ),
@@ -172,10 +176,10 @@ class _PayState extends State<Pay> {
                       iconStyleData: IconStyleData(
                         icon: Icon(
                           Icons.arrow_drop_down,
-                          color: Colors.deepPurple,
+                          color: Color(0xFF22416E),
                           size: 30,
                         ),
-                        iconEnabledColor: Colors.deepPurple,
+                        iconEnabledColor: Color(0xFF22416E),
                         iconDisabledColor: Colors.grey,
                       ),
                     ),
@@ -185,28 +189,28 @@ class _PayState extends State<Pay> {
                     controller: _amountController,
                     keyboardType: TextInputType.number,
                     style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: Color(0xFF22416E),
                       fontWeight: FontWeight.bold,
                     ),
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Color(0xFF22416E)),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       prefixIcon: Icon(
                         Icons.account_balance_wallet_outlined,
-                        color: Colors.deepPurple,
+                        color: Color(0xFF22416E),
                       ),
                       label: Text(
                         "Payment Amount",
                         style: TextStyle(
-                          color: Colors.deepPurple,
+                          color: Color(0xFF22416E),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       hintText: "Enter payment amount...",
                       hintStyle: TextStyle(
-                        color: Colors.deepPurple,
+                        color: Color(0xFF22416E),
                         fontStyle: FontStyle.italic,
                       ),
                       errorStyle: TextStyle(
@@ -236,28 +240,28 @@ class _PayState extends State<Pay> {
                     controller: _accountController,
                     keyboardType: TextInputType.number,
                     style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: Color(0xFF22416E),
                       fontWeight: FontWeight.bold,
                     ),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.account_balance_outlined,
-                        color: Colors.deepPurple,
+                        color: Color(0xFF22416E),
                       ),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.deepPurple),
+                        borderSide: BorderSide(color: Color(0xFF22416E)),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       label: Text(
                         "Account Number",
                         style: TextStyle(
-                          color: Colors.deepPurple,
+                          color: Color(0xFF22416E),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       hintText: "Enter account number...",
                       hintStyle: TextStyle(
-                        color: Colors.deepPurple,
+                        color: Color(0xFF22416E),
                         fontStyle: FontStyle.italic,
                       ),
                       errorStyle: TextStyle(
@@ -292,7 +296,7 @@ class _PayState extends State<Pay> {
                               )
                               : Icon(Icons.payment),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepPurpleAccent,
+                        backgroundColor: Color(0xFF22416E),
                         foregroundColor: Colors.white,
                       ),
                     ),
@@ -336,7 +340,7 @@ class _PayState extends State<Pay> {
           content: Text(
             'Payment of Rp. ${amount.toStringAsFixed(0)} to account ${_accountController.text} successful',
           ),
-          backgroundColor: Colors.green,
+          backgroundColor: Color(0xFF22416E),
         ),
       );
 

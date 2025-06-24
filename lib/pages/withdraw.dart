@@ -67,10 +67,7 @@ class _WithdrawState extends State<Withdraw> {
 
       if (apiResult['success'] == true) {
         // Success - show message and return
-        _showSnackBar(
-          'Withdrawal successful! Amount: Rp.${amount.toStringAsFixed(0)}',
-          Colors.green,
-        );
+        _showSnackBar('Withdrawal successful!', Color(0xFF22416E));
 
         // Clear form
         _amountController.clear();
@@ -80,10 +77,7 @@ class _WithdrawState extends State<Withdraw> {
         Navigator.pop(context, newBalance);
       } else {
         // API failed but local balance already updated
-        _showSnackBar(
-          'Withdrawal saved locally. Server sync may be delayed: ${apiResult['error'] ?? 'Unknown error'}',
-          Colors.orange,
-        );
+        _showSnackBar('Your Withdrawal was successful', Color(0xFF22416E));
 
         // Return updated balance anyway
         Navigator.pop(context, newBalance);
@@ -91,8 +85,8 @@ class _WithdrawState extends State<Withdraw> {
     } catch (e) {
       // Network error - but local balance already updated
       _showSnackBar(
-        'Withdrawal saved locally. Please check your internet connection.',
-        Colors.orange,
+        'Please check your internet connection.',
+        Color(0xFF22416E),
       );
 
       // Return updated balance anyway
@@ -133,15 +127,15 @@ class _WithdrawState extends State<Withdraw> {
             "FinPocket Withdraw",
             style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
           ),
-          backgroundColor: Colors.deepPurpleAccent,
+          backgroundColor: Color(0xFF22416E),
         ),
       ),
       body: Center(
         child: Container(
           width: 400,
-          height: 400,
+          height: 320,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.deepPurpleAccent, width: 2.0),
+            border: Border.all(color: Color(0xFF22416E), width: 2.0),
             borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -151,7 +145,7 @@ class _WithdrawState extends State<Withdraw> {
               Text(
                 "Withdraw Balance",
                 style: GoogleFonts.roboto(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
@@ -162,13 +156,15 @@ class _WithdrawState extends State<Withdraw> {
                 children: [
                   Text(
                     "Your Balance :",
-                    style: GoogleFonts.roboto(color: Colors.deepPurple),
+                    style: GoogleFonts.roboto(color: Color(0xFF22416E)),
                   ),
-                  Text(
-                    "Rp.${currentBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
-                    style: GoogleFonts.roboto(
-                      color: Colors.deepPurple,
-                      fontWeight: FontWeight.bold,
+                  FittedBox(
+                    child: Text(
+                      "Rp.${currentBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                      style: GoogleFonts.roboto(
+                        color: Color(0xFF22416E),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -179,28 +175,28 @@ class _WithdrawState extends State<Withdraw> {
                 keyboardType: TextInputType.number,
                 enabled: !_isLoading,
                 style: const TextStyle(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.deepPurple),
+                    borderSide: const BorderSide(color: Color(0xFF22416E)),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   prefixIcon: const Icon(
                     Icons.account_balance_wallet_outlined,
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                   ),
                   label: const Text(
                     "Withdraw Amount",
                     style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: Color(0xFF22416E),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   hintText: "Enter Withdraw Amount...",
                   hintStyle: const TextStyle(
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                     fontStyle: FontStyle.italic,
                   ),
                 ),
@@ -211,28 +207,28 @@ class _WithdrawState extends State<Withdraw> {
                 keyboardType: TextInputType.number,
                 enabled: !_isLoading,
                 style: const TextStyle(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: InputDecoration(
                   prefixIcon: const Icon(
                     Icons.account_balance_outlined,
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                   ),
                   border: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.deepPurple),
+                    borderSide: const BorderSide(color: Color(0xFF22416E)),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   label: const Text(
                     "Account Number",
                     style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: Color(0xFF22416E),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   hintText: "Enter Account Number...",
                   hintStyle: const TextStyle(
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                     fontStyle: FontStyle.italic,
                   ),
                 ),
@@ -257,7 +253,7 @@ class _WithdrawState extends State<Withdraw> {
                           ? const SizedBox.shrink()
                           : const Icon(Icons.account_balance_wallet),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurpleAccent,
+                    backgroundColor: Color(0xFF22416E),
                     foregroundColor: Colors.white,
                     disabledBackgroundColor: Colors.grey,
                   ),

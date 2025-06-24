@@ -36,8 +36,8 @@ class _AddCategoryState extends State<AddCategory> {
           onPressed: () {
             Navigator.pop(context);
           },
-          label: const Text("Back"),
-          icon: const Icon(Icons.arrow_back_ios),
+          label: const Text("Back", style: TextStyle(color: Color(0xFF22416E))),
+          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF22416E)),
         ),
         ElevatedButton.icon(
           onPressed: _isSubmitting ? null : _submitForm,
@@ -54,7 +54,7 @@ class _AddCategoryState extends State<AddCategory> {
                   )
                   : const Icon(Icons.add),
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.deepPurple,
+            backgroundColor: Color(0xFF22416E),
             foregroundColor: Colors.white,
           ),
         ),
@@ -63,7 +63,7 @@ class _AddCategoryState extends State<AddCategory> {
         "Add Your Category",
         textAlign: TextAlign.center,
         style: GoogleFonts.roboto(
-          color: Colors.deepPurple,
+          color: Color(0xFF22416E),
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -77,13 +77,15 @@ class _AddCategoryState extends State<AddCategory> {
               children: [
                 Text(
                   "Your Balance :",
-                  style: GoogleFonts.roboto(color: Colors.deepPurple),
+                  style: GoogleFonts.roboto(color: Color(0xFF22416E)),
                 ),
-                Text(
-                  "Rp. ${widget.currentBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
-                  style: GoogleFonts.roboto(
-                    color: Colors.deepPurple,
-                    fontWeight: FontWeight.bold,
+                FittedBox(
+                  child: Text(
+                    "Rp. ${widget.currentBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                    style: GoogleFonts.roboto(
+                      color: Color(0xFF22416E),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
@@ -93,7 +95,7 @@ class _AddCategoryState extends State<AddCategory> {
               controller: _categoryNameController,
               textCapitalization: TextCapitalization.characters,
               style: const TextStyle(
-                color: Colors.deepPurple,
+                color: Color(0xFF22416E),
                 fontWeight: FontWeight.bold,
               ),
               decoration: InputDecoration(
@@ -103,18 +105,18 @@ class _AddCategoryState extends State<AddCategory> {
                 ),
                 prefixIcon: const Icon(
                   Icons.category,
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                 ),
                 label: const Text(
                   "Category Name",
                   style: TextStyle(
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 hintText: "Enter Category Name...",
                 hintStyle: const TextStyle(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontStyle: FontStyle.italic,
                 ),
                 errorStyle: const TextStyle(
@@ -140,22 +142,22 @@ class _AddCategoryState extends State<AddCategory> {
               decoration: InputDecoration(
                 prefixIcon: const Icon(
                   Icons.account_balance,
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                 ),
                 border: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.deepPurple),
+                  borderSide: const BorderSide(color: Color(0xFF22416E)),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 label: const Text(
                   "Category Balance",
                   style: TextStyle(
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 hintText: "Enter Balance Amount...",
                 hintStyle: const TextStyle(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontStyle: FontStyle.italic,
                 ),
                 errorStyle: const TextStyle(
@@ -221,7 +223,7 @@ class _AddCategoryState extends State<AddCategory> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Category created successfully'),
-            backgroundColor: Colors.green,
+            backgroundColor: Color(0xFF22416E),
           ),
         );
       }

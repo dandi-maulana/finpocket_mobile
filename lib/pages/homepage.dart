@@ -104,7 +104,7 @@ class _HomepageState extends State<Homepage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Center(
             child: Container(
               width: 380,
@@ -113,7 +113,12 @@ class _HomepageState extends State<Homepage> {
                 gradient: const LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Colors.deepPurple, Colors.deepPurpleAccent],
+                  colors: [
+                    Color(0xFF97B7E9),
+                    Color(0xFF22416E),
+                    Color(0xFF14304F),
+                    Color(0xFF111E30),
+                  ],
                 ),
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -164,12 +169,14 @@ class _HomepageState extends State<Homepage> {
                               color: Colors.white,
                             ),
                           ),
-                          Text(
-                            "Rp.${balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
-                            style: GoogleFonts.roboto(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                          FittedBox(
+                            child: Text(
+                              "Rp.${balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                              style: GoogleFonts.roboto(
+                                fontSize: 25,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
@@ -185,11 +192,15 @@ class _HomepageState extends State<Homepage> {
                           Navigator.pushNamed(context, Pay.nameRoute);
                         },
                         style: ElevatedButton.styleFrom(),
-                        icon: const Icon(Icons.payment),
+                        icon: const Icon(
+                          Icons.payment,
+                          color: Color(0xFF22416E),
+                        ),
                         label: Text(
                           "Pay",
                           style: GoogleFonts.roboto(
                             fontWeight: FontWeight.bold,
+                            color: Color(0xFF22416E),
                           ),
                         ),
                       ),
@@ -207,11 +218,15 @@ class _HomepageState extends State<Homepage> {
                           }
                         },
                         style: ElevatedButton.styleFrom(),
-                        icon: const Icon(Icons.account_balance_wallet),
+                        icon: const Icon(
+                          Icons.account_balance_wallet,
+                          color: Color(0xFF22416E),
+                        ),
                         label: Text(
                           "Withdraw",
                           style: GoogleFonts.roboto(
                             fontWeight: FontWeight.bold,
+                            color: Color(0xFF22416E),
                           ),
                         ),
                       ),
@@ -228,11 +243,15 @@ class _HomepageState extends State<Homepage> {
                             });
                           }
                         },
-                        icon: const Icon(Icons.account_balance),
+                        icon: const Icon(
+                          Icons.account_balance,
+                          color: Color(0xFF22416E),
+                        ),
                         label: Text(
                           "Deposit",
                           style: GoogleFonts.roboto(
                             fontWeight: FontWeight.bold,
+                            color: Color(0xFF22416E),
                           ),
                         ),
                       ),
@@ -247,7 +266,7 @@ class _HomepageState extends State<Homepage> {
             "Your Categories",
             style: GoogleFonts.roboto(
               fontSize: 20,
-              color: Colors.deepPurpleAccent,
+              color: Color(0xFF22416E),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -300,16 +319,22 @@ class _HomepageState extends State<Homepage> {
                       title: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(category.name),
-                          const SizedBox(height: 10),
                           Text(
-                            "Rp.${category.balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                            category.name,
+                            style: TextStyle(color: Color(0xFF22416E)),
+                          ),
+                          const SizedBox(height: 10),
+                          FittedBox(
+                            child: Text(
+                              "Rp.${category.balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                              style: TextStyle(color: Color(0xFF22416E)),
+                            ),
                           ),
                         ],
                       ),
                       leading: Icon(
                         Icons.category,
-                        color: Colors.deepPurpleAccent,
+                        color: Color(0xFF22416E),
                         size: 40,
                       ),
                       trailing: IconButton(
@@ -329,11 +354,18 @@ class _HomepageState extends State<Homepage> {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Colors.deepPurple, Colors.deepPurpleAccent],
+            colors: [
+              Color(0xFF97B7E9),
+              Color(0xFF22416E),
+              Color(0xFF14304F),
+              Color(0xFF111E30),
+            ],
+            begin: Alignment.bottomRight,
+            end: Alignment.topLeft,
           ),
           borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(40),
-            topRight: Radius.circular(40),
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
         ),
         child: Row(
@@ -364,7 +396,7 @@ class _HomepageState extends State<Homepage> {
                   },
                 );
               },
-              child: const Icon(Icons.add, color: Colors.deepPurple, size: 30),
+              child: const Icon(Icons.add, color: Color(0xFF22416E), size: 30),
             ),
             IconButton(
               onPressed: () {

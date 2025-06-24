@@ -59,13 +59,10 @@ class _DepositState extends State<Deposit> {
       final newBalance = await BalanceService.getBalance();
 
       if (apiResult['success']) {
-        _showSnackBar('Deposit successful!', Colors.green);
+        _showSnackBar('Deposit successful!', Color(0xFF22416E));
       } else {
         // Jika API gagal, beri peringatan tapi tetap lakukan deposit lokal
-        _showSnackBar(
-          'Deposit saved locally. Server sync may be delayed: ${apiResult['error'] ?? 'Unknown error'}',
-          Colors.orange,
-        );
+        _showSnackBar('Your deposit was successful', Color(0xFF22416E));
       }
 
       // Tunggu sebentar untuk menampilkan snackbar
@@ -127,15 +124,15 @@ class _DepositState extends State<Deposit> {
             "FinPocket Deposit",
             style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
           ),
-          backgroundColor: Colors.deepPurpleAccent,
+          backgroundColor: Color(0xFF22416E),
         ),
       ),
       body: Center(
         child: Container(
           width: 400,
-          height: 350,
+          height: 300,
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.deepPurpleAccent, width: 2.0),
+            border: Border.all(color: Color(0xFF22416E), width: 2.0),
             borderRadius: BorderRadius.circular(20),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -145,7 +142,7 @@ class _DepositState extends State<Deposit> {
               Text(
                 "Deposit Balance",
                 style: GoogleFonts.roboto(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
@@ -156,13 +153,15 @@ class _DepositState extends State<Deposit> {
                 children: [
                   Text(
                     "Your Balance :",
-                    style: GoogleFonts.roboto(color: Colors.deepPurple),
+                    style: GoogleFonts.roboto(color: Color(0xFF22416E)),
                   ),
-                  Text(
-                    "Rp.${currentBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
-                    style: GoogleFonts.roboto(
-                      color: Colors.deepPurple,
-                      fontWeight: FontWeight.bold,
+                  FittedBox(
+                    child: Text(
+                      "Rp.${currentBalance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                      style: GoogleFonts.roboto(
+                        color: Color(0xFF22416E),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
@@ -174,7 +173,7 @@ class _DepositState extends State<Deposit> {
                 textCapitalization: TextCapitalization.characters,
                 enabled: !_isLoading,
                 style: const TextStyle(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontWeight: FontWeight.bold,
                 ),
                 decoration: InputDecoration(
@@ -184,18 +183,18 @@ class _DepositState extends State<Deposit> {
                   ),
                   prefixIcon: const Icon(
                     Icons.account_balance_wallet_outlined,
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                   ),
                   label: const Text(
                     "Deposit Amount",
                     style: TextStyle(
-                      color: Colors.deepPurple,
+                      color: Color(0xFF22416E),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   hintText: "Enter Deposit Amount...",
                   hintStyle: const TextStyle(
-                    color: Colors.deepPurple,
+                    color: Color(0xFF22416E),
                     fontStyle: FontStyle.italic,
                   ),
                 ),
@@ -203,12 +202,12 @@ class _DepositState extends State<Deposit> {
               const SizedBox(height: 10),
               Text(
                 "Virtual Account Number FinPocket",
-                style: GoogleFonts.roboto(color: Colors.deepPurple),
+                style: GoogleFonts.roboto(color: Color(0xFF22416E)),
               ),
               Text(
                 "882816004920",
                 style: GoogleFonts.roboto(
-                  color: Colors.deepPurple,
+                  color: Color(0xFF22416E),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -234,7 +233,7 @@ class _DepositState extends State<Deposit> {
                           ? const SizedBox.shrink()
                           : const Icon(Icons.account_balance),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.deepPurpleAccent,
+                    backgroundColor: Color(0xFF22416E),
                     foregroundColor: Colors.white,
                     disabledBackgroundColor: Colors.grey,
                   ),

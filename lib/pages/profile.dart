@@ -70,9 +70,14 @@ class _ProfileState extends State<Profile> {
           height: 380,
           decoration: BoxDecoration(
             gradient: const LinearGradient(
-              colors: [Colors.deepPurple, Colors.deepPurpleAccent],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              colors: [
+                Color(0xFF97B7E9),
+                Color(0xFF22416E),
+                Color(0xFF14304F),
+                Color(0xFF111E30),
+              ],
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
             ),
             borderRadius: BorderRadius.circular(20),
           ),
@@ -114,17 +119,19 @@ class _ProfileState extends State<Profile> {
                     Text(
                       "Your Balance",
                       style: GoogleFonts.roboto(
-                        color: Colors.deepPurpleAccent,
+                        color: Color(0xFF22416E),
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
-                      "Rp. ${balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
-                      style: GoogleFonts.roboto(
-                        color: Colors.deepPurpleAccent,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                    FittedBox(
+                      child: Text(
+                        "Rp. ${balance.toStringAsFixed(0).replaceAllMapped(RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'), (Match m) => '${m[1]}.')}",
+                        style: GoogleFonts.roboto(
+                          color: Color(0xFF22416E),
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -150,7 +157,14 @@ class _ProfileState extends State<Profile> {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Colors.deepPurple, Colors.deepPurpleAccent],
+            colors: [
+              Color(0xFF97B7E9),
+              Color(0xFF22416E),
+              Color(0xFF14304F),
+              Color(0xFF111E30),
+            ],
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
           ),
           borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(40),
@@ -185,7 +199,7 @@ class _ProfileState extends State<Profile> {
                   },
                 );
               },
-              child: const Icon(Icons.add, color: Colors.deepPurple, size: 30),
+              child: const Icon(Icons.add, color: Color(0xFF22416E), size: 30),
             ),
             IconButton(
               onPressed: () {
