@@ -33,12 +33,7 @@ class ApiService {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: json.encode({
-          'name': name,
-          'email': email,
-          'password': password,
-          'password_confirmation': password,
-        }),
+        body: json.encode({'name': name, 'email': email, 'password': password}),
       );
 
       final data = json.decode(response.body);
